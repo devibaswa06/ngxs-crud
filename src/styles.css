@@ -1,0 +1,26 @@
+/* table styles starts here */
+.table_cusclass tr:nth-child(even) {
+    background: #f8f9fa;
+}
+.table_cusclass tr:last-child {
+   border-bottom: 2px solid #dee2e6;
+}
+.table td{
+    vertical-align: middle;
+}
+/* tables stysles ends here */
+
+/* navigagtion starts here */
+
+.custom_navigation ul{
+    background-color: #007bff;
+    padding: 10px;
+}
+.custom_navigation ul .nav-link.active{
+    /* background-color: red; */
+    color:white ;
+}
+.custom_navigation ul .nav-link{
+    color:#c7d3df ;
+}
+/* navigation ends here */

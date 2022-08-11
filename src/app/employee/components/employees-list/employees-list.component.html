@@ -1,0 +1,63 @@
+<div class=" ">
+  <h3 class="text-center">Empolyee List</h3>
+  <table class="table table_cusclass">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empolyee of employees$ | async">
+       
+        <td>{{ empolyee.name }}</td>
+        <td>{{ empolyee.department }}</td>
+        <td>
+          <button (click)="showUpdateForm(empolyee)" class="btn btn-primary" style="margin: 5px">Update</button>
+          <button (click)="deleteEmployee(empolyee.id)" class="btn btn-danger" style="margin: 5px">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="isUpdateActivated" class="container-fluid">
+    <h4>Update Empolyee</h4>
+   
+    <form (ngSubmit)="updateEmployee(updateForm)" #updateForm="ngForm">
+      <div class="">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="name">Empolyee Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              required
+              [(ngModel)]="employeeToBeUpdated.name"
+              style=""/>
+          </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="side">Department</label>
+              <input
+                type="text"
+                id="department"
+                name="department"
+                class="form-control"
+                required
+                [(ngModel)]="employeeToBeUpdated.department"
+                style=""/>
+            </div></div>
+          
+        </div>
+      </div>
+      
+      <div class="text-center">
+      <button [disabled]="updateForm.invalid" class="btn btn-primary" type="submit">Update</button></div>
+    </form>
+  </div>
+</div>
